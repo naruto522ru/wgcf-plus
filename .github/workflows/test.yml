@@ -1,0 +1,67 @@
+# This is a basic workflow to help you get started with Actions
+
+name: build
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '30 5,17 * * *'
+  push:
+  pull_request:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # The "build" workflow
+  Build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # Setup Go
+    - name: Setup Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: '^1.18' # The Go version to download (if necessary) and use.
+        #check-latest: true
+    
+    # Run build of the application for Linux x86\WSL
+    - name: Show Golang env
+      run: go env
+
+    # Run build of the application for Linux x86\WSL
+    - name: Run build for Linux x86\WSL
+      run: |
+        cd Lin_32bit
+        go mod init invisibles-crack
+        go mod tidy
+        GOOS=linux GOARCH=386 go build -o invisibles-crack
+
+    # Run build of the application for Windows x86
+    - name: Run build for Windows x86
+      run: |
+        cd Lin_32bit
+        GOOS=windows GOARCH=386 go build -o invisibles-crack
+
+    # Run build of the application for Windows ARMv7
+    - name: Run build for Windows ARMv7
+      run: |
+        cd Lin_32bit
+        GOOS=windows GOARCH=arm go build -o invisibles-crack
+
+    # Run build of the application for MACOS X x86_64
+    - name: Run build for MacOS X x86_64
+      run: |
+        cd Lin_32bit
+        GOOS=darwin GOARCH=amd64 go build -o invisibles-crack
+
+    # Run build of the application for MACOS X ARMv8
+    - name: Run build for MacOS X ARMv8
+      run: |
+        cd Lin_32bit
+        GOOS=darwin GOARCH=arm64 go build -o invisibles-crack

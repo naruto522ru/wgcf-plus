@@ -1,0 +1,1 @@
+../Lin_32bit/warp_config_generator.sh

@@ -1,0 +1,10 @@
+go.mod
+go.sum
+*.conf
+*.toml
+*.bak
+wgcf-plus-realease/
+invisibles-crack.exe
+invisibles-crack
+wgcf.exe
+wgcf
