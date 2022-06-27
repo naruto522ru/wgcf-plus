@@ -7,6 +7,134 @@ echo -e "\e[0;32m=============================================================\0
 echo ""
 read -p "Enter 1 to generate or press Enter to skip:" genwarpplus
 generate_random_string=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)
+
+replace_ip(){
+    clear -x
+    echo "Select Endpoint Wireguard:"
+    echo
+    echo "1)162.159.193.1:2408 10)162.159.193.1:500 19)162.159.193.1:1701 28)162.159.193.1:4500"
+    echo "2)162.159.193.2:2408 11)162.159.193.2:500 20)162.159.193.2:1701 29)162.159.193.2:4500"
+    echo "3)162.159.193.3:2408 12)162.159.193.3:500 21)162.159.193.3:1701 30)162.159.193.3:4500"
+    echo "4)162.159.193.4:2408 13)162.159.193.4:500 22)162.159.193.4:1701 31)162.159.193.4:4500"
+    echo "5)162.159.193.5:2408 14)162.159.193.5:500 23)162.159.193.5:1701 32)162.159.193.5:4500"
+    echo "6)162.159.193.6:2408 15)162.159.193.6:500 24)162.159.193.6:1701 33)162.159.193.6:4500"
+    echo "7)162.159.193.7:2408 16)162.159.193.7:500 25)162.159.193.7:1701 34)162.159.193.7:4500"
+    echo "8)162.159.193.8:2408 17)162.159.193.8:500 26)162.159.193.8:1701 35)162.159.193.8:4500"
+    echo "9)162.159.193.9:2408 18)162.159.193.9:500 27)162.159.193.9:1701 36)162.159.193.9:4500"
+    read -p "Select:" server
+
+    case "$server" in
+        "1" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.1:2408/g' ./*_Warp.conf
+            ;;
+        "2" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.2:2408/g' ./*_Warp.conf
+            ;;
+        "3" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.3:2408/g' ./*_Warp.conf
+            ;;
+        "4" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.4:2408/g' ./*_Warp.conf
+            ;;
+        "5" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.5:2408/g' ./*_Warp.conf
+            ;;
+        "6" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.6:2408/g' ./*_Warp.conf
+            ;;
+        "7" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.7:2408/g' ./*_Warp.conf
+            ;;
+        "8" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.8:2408/g' ./*_Warp.conf
+            ;;
+        "9" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.9:2408/g' ./*_Warp.conf
+            ;;
+        "10" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.1:500/g' ./*_Warp.conf
+            ;;
+        "11" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.2:500/g' ./*_Warp.conf
+            ;;
+        "12" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.3:500/g' ./*_Warp.conf
+            ;;
+        "13" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.4:500/g' ./*_Warp.conf
+            ;;
+        "14" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.5:500/g' ./*_Warp.conf
+            ;;
+        "15" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.6:500/g' ./*_Warp.conf
+            ;;
+        "16" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.7:500/g' ./*_Warp.conf
+            ;;
+        "17" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.8:500/g' ./*_Warp.conf
+            ;;
+        "18" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.9:500/g' ./*_Warp.conf
+            ;;
+        "19" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.1:1701/g' ./*_Warp.conf
+            ;;
+        "20" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.2:1701/g' ./*_Warp.conf
+            ;;
+        "21" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.3:1701/g' ./*_Warp.conf
+            ;;
+        "22" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.4:1701/g' ./*_Warp.conf
+            ;;
+        "23" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.5:1701/g' ./*_Warp.conf
+            ;;
+        "24" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.6:1701/g' ./*_Warp.conf
+            ;;
+        "25" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.7:1701/g' ./*_Warp.conf
+            ;;
+        "26" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.8:1701/g' ./*_Warp.conf
+            ;;
+        "27" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.9:1701/g' ./*_Warp.conf
+            ;;
+        "28" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.1:4500/g' ./*_Warp.conf
+            ;;
+        "29" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.2:4500/g' ./*_Warp.conf
+            ;;
+        "30" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.3:4500/g' ./*_Warp.conf
+            ;;
+        "31" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.4:4500/g' ./*_Warp.conf
+            ;;
+        "32" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.5:4500/g' ./*_Warp.conf
+            ;;
+        "33" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.6:4500/g' ./*_Warp.conf
+            ;;
+        "34" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.7:4500/g' ./*_Warp.conf
+            ;;
+        "35" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.8:4500/g' ./*_Warp.conf
+            ;;
+        "36" )
+            sed -i 's/engage.cloudflareclient.com:2408/162.159.193.9:4500/g' ./*_Warp.conf
+            ;;
+    esac
+}
+
 if [[ $genwarpplus == "1" ]]; then
     echo ""
     if [[ -f ./invisibles-crack ]]; then
@@ -63,7 +191,7 @@ if [ ${#warpkey} -eq "0" ] || [ ${#warpkey} -ne "26" ] ; then #Разобрат�
     sed -i "s|/32|/32,${search_IPv6_address}|g" ./${generate_random_string}_Warp.conf
     sed -i '4d' ./${generate_random_string}_Warp.conf
     #Replace Domain->IP
-    sed -i 's/engage.cloudflareclient.com:2408/162.159.193.5:2408/g' ./${generate_random_string}_Warp.conf
+    replace_ip;
     #DNS
     sed -i 's/1.1.1.1/1.0.0.1,1.1.1.1/g' ./${generate_random_string}_Warp.conf
     #PersistentKeepalive time adding in config
@@ -83,12 +211,12 @@ else
     if [[ $choice == 1 ]] || [[ $choice == "" ]]; then
         echo ""
         if [[ $choice == 1 ]]; then
-        echo -e "\e[0;32mSelected full filenames\033[0m"
-        echo ""
+            echo -e "\e[0;32mSelected full filenames\033[0m"
+            echo ""
         fi
         if [[ $choice == "" ]]; then
-        echo -e "\e[0;32mDefault selected full filenames\033[0m"
-        echo ""
+            echo -e "\e[0;32mDefault selected full filenames\033[0m"
+            echo ""
         fi
         echo -e "\e[0;34mRegister and create new Warp account...\033[0m"
         ./wgcf register --accept-tos --config ./${warpkey}_Warp.toml
@@ -109,13 +237,13 @@ else
         sed -i "s|/32|/32,${search_IPv6_address}|g" ./${warpkey}_Warp.conf
         sed -i '4d' ./${warpkey}_Warp.conf
         #Replace Domain->IP
-        sed -i 's/engage.cloudflareclient.com:2408/162.159.193.5:2408/g' ./${warpkey}_Warp.conf
+        replace_ip;
         #DNS
         sed -i 's/1.1.1.1/1.0.0.1,1.1.1.1/g' ./${warpkey}_Warp.conf
         #PersistentKeepalive time adding in config
         echo PersistentKeepalive\ \= \25 >> ./${warpkey}_Warp.conf
         #Delete default 1280 MTU in config
-	sed -i '5d' ./${warpkey}_Warp.conf
+        sed -i '5d' ./${warpkey}_Warp.conf
         echo -e "\e[0;34mDone!\033[0m"
     fi
     if [[ $choice == 2 ]]; then
@@ -141,13 +269,13 @@ else
         sed -i "s|/32|/32,${search_IPv6_address}|g" ./${warpkey_short}_Warp.conf
         sed -i '4d' ./${warpkey_short}_Warp.conf
         #Replace Domain->IP
-        sed -i 's/engage.cloudflareclient.com:2408/162.159.193.5:2408/g' ./${warpkey_short}_Warp.conf
+        replace_ip;
         #DNS
         sed -i 's/1.1.1.1/1.0.0.1,1.1.1.1/g' ./${warpkey_short}_Warp.conf
         #PersistentKeepalive time adding in config
         echo PersistentKeepalive\ \= \25 >> ./${warpkey_short}_Warp.conf
         #Delete default 1280 MTU in config
-	sed -i '5d' ./${warpkey_short}_Warp.conf
+        sed -i '5d' ./${warpkey_short}_Warp.conf
         echo -e "\e[0;34mDone!\033[0m"
     fi
 fi
