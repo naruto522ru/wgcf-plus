@@ -22,6 +22,7 @@
 ## Contents
 - [Requirements](#requirements)
 - [Usage](#usage)
+- [Troubleshooting](#troubleshooting)
 - [Thanks](#thanks)
 ---
 
@@ -43,6 +44,20 @@ In PowerShell:
 ```
 .\warp_config_generator.ps1
 ```
+##  Troubleshooting:
+If it doesn't work try replacing EndPoints with the following:
+```
+162.159.193.1 
+162.159.193.2
+162.159.193.3
+162.159.193.4
+162.159.193.5
+162.159.193.6
+162.159.193.7
+162.159.193.8
+162.159.193.9
+```
+Possible **UDP port** values: **2408**,**500**,**1701**,**4500**
 ## Thanks:
 
 • [Friend](https://github.com/Innsmouth-trip) (It was he who did the bulk of the work of porting the script to the new language.)
