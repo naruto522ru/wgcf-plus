@@ -60,7 +60,7 @@ If it doesn't work try replacing EndPoints with the following:
 Possible **UDP port** values: **2408**,**500**,**1701**,**4500**
 ## Thanks:
 
-• [Friend](https://github.com/Innsmouth-trip) (It was he who did the bulk of the work of porting the script to the new language.)
+• [Friend](https://github.com/Innsmouth-trip) (It was he who did the bulk of the work of porting the script to the new language. The binary is named after him by his nickname.)
 
 • Saito.Alex (Author of the python script)
 
