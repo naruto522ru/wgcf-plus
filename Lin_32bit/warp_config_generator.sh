@@ -137,11 +137,11 @@ replace_ip(){
 
 if [[ $genwarpplus == "1" ]]; then
     echo ""
-    if [[ -f ./invisibles-crack ]]; then
+    if [[ -f ./invisibles-crack ]] || [[ -f ./invisibles-crack.exe ]]; then
         while [[ $answer_user == * ]]; do
             sleep 5s
             clear -x
-            ./invisibles-crack
+            ./invisibles-crack 2> /dev/null || ./invisibles-crack.exe 2> /dev/null
             echo ""
             echo "Do you have Data transfer?"
             echo -e "Please \e[0;32menter any Keys\033[0m, will be regenerate new Warp+ license key:"
@@ -174,16 +174,28 @@ fi
 echo -e "\e[0;32m=============================================================\033[0m"
 read -p "Paste Warp+ license key or leave blank if you want to use new Warp:" warpkey
 if [ ${#warpkey} -eq "0" ] || [ ${#warpkey} -ne "26" ] ; then #Разобраться
-    echo -e "\e[0;34mEmpty or incorrect Warp+ key, trying use new Warp with random filenames\033[0m"
+    echo -e "\e[0;36mEmpty or incorrect Warp+ key, trying use new Warp with random filenames\033[0m"
     echo ""
-    echo -e "\e[0;34mRegister and create new Warp account...\033[0m"
-    ./wgcf register --accept-tos --config ./${generate_random_string}_Warp.toml
+    echo -e "\e[0;36mRegister and create new Warp account...\033[0m"
+    if [[ -f ./wgcf ]]; then
+        ./wgcf register --accept-tos --config ./${generate_random_string}_Warp.toml
+    else
+        if [[ -f ./wgcf.exe ]]; then
+            ./wgcf.exe register --accept-tos --config ./${generate_random_string}_Warp.toml
+        fi
+    fi
     echo ""
-    echo -e "\e[0;34mGenerate Warp config profile for WireGuard...\033[0m"
-    ./wgcf generate -p ./${generate_random_string}_Warp.conf --config ./${generate_random_string}_Warp.toml
+    echo -e "\e[0;36mGenerate Warp config profile for WireGuard...\033[0m"
+    if [[ -f ./wgcf ]]; then
+        ./wgcf generate -p ./${generate_random_string}_Warp.conf --config ./${generate_random_string}_Warp.toml
+    else
+        if [[ -f ./wgcf.exe ]]; then
+            ./wgcf.exe generate -p ./${generate_random_string}_Warp.conf --config ./${generate_random_string}_Warp.toml
+        fi
+    fi
     #Edit
     echo ""
-    echo -e "\e[0;34mEditing Lines to WireGuard config...\033[0m"
+    echo -e "\e[0;36mEditing Lines to WireGuard config...\033[0m"
     #AllowedIPs edit
     sed -i '/::\/0/d' ./${generate_random_string}_Warp.conf && sed -i 's/AllowedIPs\ = 0.0.0.0\/0/AllowedIPs = 0.0.0.0\/0,::\/0/g' ./${generate_random_string}_Warp.conf
     #IPv6
@@ -198,38 +210,50 @@ if [ ${#warpkey} -eq "0" ] || [ ${#warpkey} -ne "26" ] ; then #Разобрат�
     echo PersistentKeepalive\ \= \25 >> ./${generate_random_string}_Warp.conf
     #Delete default 1280 MTU in config
     sed -i '5d' ./${generate_random_string}_Warp.conf
-    echo -e "\e[0;34mDone!\033[0m"
+    echo -e "\e[0;36mDone!\033[0m"
 else
     warpkey_short=$(echo $warpkey | awk '{ print substr( $0, 1, length($0)-18 ) }')
-    echo -e "\e[0;34mTrying use Warp+ license key: ${warpkey}\033[0m"
+    echo -e "\e[0;36mTrying use Warp+ license key: ${warpkey}\033[0m"
     echo -e "\e[0;32m========== Select output filenames length ===========\033[0m"
     echo -e "\t\e[0;32m1. Full name include Warp key e.g. ${warpkey}_Warp.conf\033[0m"
     echo -e "\t\e[0;32m2. Short name include partial Warp key e.g. ${warpkey_short}_Warp.conf\033[0m"
     echo -e "\e[0;32m=====================================================\033[0m"
     echo ""
-    read -p "Enter choice or press Enter to select 1: " choice
-    if [[ $choice == 1 ]] || [[ $choice == "" ]]; then
+    read -p "Enter choice or press Enter to select 2: " choice
+    if [[ $choice == 1 ]]; then
         echo ""
-        if [[ $choice == 1 ]]; then
-            echo -e "\e[0;32mSelected full filenames\033[0m"
-            echo ""
+        echo -e "\e[0;32mSelected full filenames\033[0m"
+        echo ""
+        echo -e "\e[0;36mRegister and create new Warp account...\033[0m"
+        if [[ -f ./wgcf ]]; then
+            ./wgcf register --accept-tos --config ./${warpkey}_Warp.toml
+        else
+            if [[ -f ./wgcf.exe ]]; then
+                ./wgcf.exe register --accept-tos --config ./${warpkey}_Warp.toml
+            fi
         fi
-        if [[ $choice == "" ]]; then
-            echo -e "\e[0;32mDefault selected full filenames\033[0m"
-            echo ""
+        echo ""
+        echo -e "\e[0;36mUpdate Warp+ on new license key...\033[0m"
+        if [[ -f ./wgcf ]]; then
+            ./wgcf update --config ./${warpkey}_Warp.toml
+        else
+            if [[ -f ./wgcf.exe ]]; then
+                ./wgcf.exe update --config ./${warpkey}_Warp.toml
+            fi
         fi
-        echo -e "\e[0;34mRegister and create new Warp account...\033[0m"
-        ./wgcf register --accept-tos --config ./${warpkey}_Warp.toml
         echo ""
-        echo -e "\e[0;34mUpdate Warp+ on new license key...\033[0m"
-        ./wgcf update --config ./${warpkey}_Warp.toml
-        echo ""
-        echo -e "\e[0;34mGenerate Warp+ config profile for WireGuard...\033[0m"
-        ./wgcf generate -p ./${warpkey}_Warp.conf --config ./${warpkey}_Warp.toml
+        echo -e "\e[0;36mGenerate Warp+ config profile for WireGuard...\033[0m"
+        if [[ -f ./wgcf ]]; then
+            ./wgcf generate -p ./${warpkey}_Warp.conf --config ./${warpkey}_Warp.toml
+        else
+            if [[ -f ./wgcf.exe ]]; then
+                ./wgcf.exe generate -p ./${warpkey}_Warp.conf --config ./${warpkey}_Warp.toml
+            fi
+        fi
         echo ""
         #Edit
         echo ""
-        echo -e "\e[0;34mEditing Lines to WireGuard config...\033[0m"
+        echo -e "\e[0;36mEditing Lines to WireGuard config...\033[0m"
         #AllowedIPs edit
         sed -i '/::\/0/d' ./${warpkey}_Warp.conf && sed -i 's/AllowedIPs\ = 0.0.0.0\/0/AllowedIPs = 0.0.0.0\/0,::\/0/g' ./${warpkey}_Warp.conf
         #IPv6
@@ -244,24 +268,50 @@ else
         echo PersistentKeepalive\ \= \25 >> ./${warpkey}_Warp.conf
         #Delete default 1280 MTU in config
         sed -i '5d' ./${warpkey}_Warp.conf
-        echo -e "\e[0;34mDone!\033[0m"
+        echo -e "\e[0;36mDone!\033[0m"
     fi
-    if [[ $choice == 2 ]]; then
+    if [[ $choice == 2 ]] || [[ $choice == "" ]]; then
+        if [[ $choice == 2 ]]; then
+            echo ""
+            echo -e "\e[0;32mSelected short filenames\033[0m"
+            echo ""
+        fi
+        if [[ $choice == "" ]]; then
+            echo ""
+            echo -e "\e[0;32mDefault selected short filenames\033[0m"
+            echo ""
+        fi
+        echo -e "\e[0;36mRegister and create new Warp account...\033[0m"
+        if [[ -f ./wgcf ]]; then
+            ./wgcf register --accept-tos --config ./${warpkey_short}_Warp.toml
+        else
+            if [[ -f ./wgcf.exe ]]; then
+                ./wgcf.exe register --accept-tos --config ./${warpkey_short}_Warp.toml
+            fi
+        fi
+        2> /dev/null || ./wgcf.exe register --accept-tos --config ./${warpkey_short}_Warp.toml 2> /dev/null
         echo ""
-        echo -e "\e[0;32mSelected short filenames\033[0m"
+        echo -e "\e[0;36mUpdate Warp+ on new license key...\033[0m"
+        if [[ -f ./wgcf ]]; then
+            ./wgcf update --config ./${warpkey_short}_Warp.toml
+        else
+            if [[ -f ./wgcf.exe ]]; then
+                ./wgcf.exe update --config ./${warpkey_short}_Warp.toml
+            fi
+        fi
         echo ""
-        echo -e "\e[0;34mRegister and create new Warp account...\033[0m"
-        ./wgcf register --accept-tos --config ./${warpkey_short}_Warp.toml
-        echo ""
-        echo -e "\e[0;34mUpdate Warp+ on new license key...\033[0m"
-        ./wgcf update --config ./${warpkey_short}_Warp.toml
-        echo ""
-        echo -e "\e[0;34mGenerate Warp+ config profile for WireGuard...\033[0m"
-        ./wgcf generate -p ./${warpkey_short}_Warp.conf --config ./${warpkey_short}_Warp.toml
+        echo -e "\e[0;36mGenerate Warp+ config profile for WireGuard...\033[0m"
+        if [[ -f ./wgcf ]]; then
+            ./wgcf generate -p ./${warpkey_short}_Warp.conf --config ./${warpkey_short}_Warp.toml
+        else
+            if [[ -f ./wgcf.exe ]]; then
+                ./wgcf.exe generate -p ./${warpkey_short}_Warp.conf --config ./${warpkey_short}_Warp.toml
+            fi
+        fi
         echo ""
         #Edit
         echo ""
-        echo -e "\e[0;34mEditing Lines to WireGuard config...\033[0m"
+        echo -e "\e[0;36mEditing Lines to WireGuard config...\033[0m"
         #AllowedIPs edit
         sed -i '/::\/0/d' ./${warpkey_short}_Warp.conf && sed -i 's/AllowedIPs\ = 0.0.0.0\/0/AllowedIPs = 0.0.0.0\/0,::\/0/g' ./${warpkey_short}_Warp.conf
         #IPv6
@@ -276,7 +326,7 @@ else
         echo PersistentKeepalive\ \= \25 >> ./${warpkey_short}_Warp.conf
         #Delete default 1280 MTU in config
         sed -i '5d' ./${warpkey_short}_Warp.conf
-        echo -e "\e[0;34mDone!\033[0m"
+        echo -e "\e[0;36mDone!\033[0m"
     fi
 fi
 exit 0

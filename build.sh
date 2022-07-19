@@ -13,8 +13,6 @@ if [ $(command -v go) ]; then
     #Linux 32bit
     GOOS=linux GOARCH=386 go build -o ./invisibles-crack
     cp -f ./invisibles-crack ../Lin_32bit/
-    #Windows WSL
-    mv ./invisibles-crack ../Win_WSL/
     #macOS 64bit
     GOOS=darwin GOARCH=amd64 go build -o ./invisibles-crack
     mv ./invisibles-crack ../MACOS_64bit/
@@ -23,7 +21,9 @@ if [ $(command -v go) ]; then
     mv ./invisibles-crack ../MACOS_ARMv8/
     #Windows 32bit
     GOOS=windows GOARCH=386 go build -o ./invisibles-crack
-    mv ./invisibles-crack ../Win_32bit/invisibles-crack.exe
+    cp ./invisibles-crack ../Win_32bit/invisibles-crack.exe
+    #Windows WSL
+    mv ./invisibles-crack ../Win_WSL/invisibles-crack.exe
     #Windows ARMv7
     GOOS=windows GOARCH=arm go build -o ./invisibles-crack
     mv ./invisibles-crack ../Win_armV7/invisibles-crack.exe
@@ -44,8 +44,6 @@ if [ $(command -v go) ]; then
         #Linux 32bit
         GOOS=linux GOARCH=386 go build
         cp -f ./wgcf ../../Lin_32bit/
-        #Windows WSL
-        mv ./wgcf ../../Win_WSL/
         #macOS 64bit
         GOOS=darwin GOARCH=amd64 go build
         mv ./wgcf ../../MACOS_64bit/
@@ -54,7 +52,9 @@ if [ $(command -v go) ]; then
         mv ./wgcf ../../MACOS_ARMv8/
         #Windows 32bit
         GOOS=windows GOARCH=386 go build -o ./wgcf.exe
-        mv ./wgcf.exe ../../Win_32bit/wgcf.exe
+        cp ./wgcf.exe ../../Win_32bit/wgcf.exe
+        #Windows WSL
+        mv ./wgcf.exe ../../Win_WSL/
         #Windows ARMv7
         GOOS=windows GOARCH=arm go build -o ./wgcf.exe
         mv ./wgcf.exe ../../Win_armV7/wgcf.exe
