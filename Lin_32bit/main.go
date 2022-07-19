@@ -13,17 +13,16 @@ import (
 )
 
 var keys = []string{
-	"th19v6X0-65IV0D9o-K0G3x89J",
-	"8sN10of3-F892sD3K-MkO3g758",
-	"b4ou372L-05ezuj42-t0jy21X4",
-	"u12b5lz3-152v3Hfu-5Ab9ng36",
-	"1K0CM4t3-Ts6D108d-Ln983x1R",
-	"5037ESOz-Ye4681nK-d3QD952R",
-	"0pEKL348-Q58V9d4m-asBI5961",
-	"W4I6w38j-Wt8d02n3-Z31Fs7l6",
-	"N925r6BZ-2eG3s0b1-p05dwi96",
-	"23uzh4L5-L4EC5u80-8u2f7I4j",
-	"1dXY53R4-0soXC637-203lEsi4",
+	"Io935xs2-7z1P65Wi-93wC5Hi2",
+	"d8D2tB46-1ZVB4G75-EFoy6817",
+	"m9054gFd-s7r302Wm-Yd5e310W",
+	"mE4370Tp-37uI5QX0-1520FzTu",
+	"5Ij3k9x8-z89X03Bf-8I046Ttk",
+	"7K142EYT-5h14ZJj9-7nfq46a5",
+	"69R14Lgr-3217hSGw-F6y741jR",
+	"23t1Zw8K-V9MR4v58-79G4oU6u",
+	"9YDz3x04-970w6ptv-cC27y38t",
+	"q7Wr91K4-5Mp8yT97-qtjS6109",
 }
 
 type fullAccountData struct {
