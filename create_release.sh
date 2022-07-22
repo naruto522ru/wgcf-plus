@@ -36,13 +36,13 @@ if [ $(command -v zip) ]; then
     zip -9 ./Windows-32bit.zip pywarp.py invisibles-crack.exe warp_config_generator.ps1 wgcf.exe
     #Windows ARMv7
     cp -f ../Win_armV7/{invisibles-crack.exe,wgcf.exe} ./
-    zip -9 ./Windows-ARNv7.zip pywarp.py invisibles-crack.exe warp_config_generator.ps1 wgcf.exe
+    zip -9 ./Windows-ARMv7.zip pywarp.py invisibles-crack.exe warp_config_generator.ps1 wgcf.exe
     rm -rfv pywarp.py wgcf* warp_config_generator* invisibles-crack.exe
     clear -x;
     echo "Testing archive"
     zip -T ./Linux-32bit.zip
     zip -T ./MacOS-64bit.zip;
-    zip -T ./Windows-ARNv7.zip;
+    zip -T ./Windows-ARMv7.zip;
     zip -T ./Linux-ARMv7.zip;
     zip -T ./MacOS-ARMv8.zip;
     zip -T ./Windows-32bit.zip;
