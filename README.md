@@ -33,6 +33,16 @@
 ### Windows 7-11 (32-bit,ARMv7):
 ##### PowerShell 7 or newer
 
+## Requirements for build (no in docker):
+WSL\MacOS\Linux:
+
+- [Android NDK](https://developer.android.com/ndk/downloads) (building for termux need r24 version)
+- [Go](https://go.dev/dl/)
+- Git
+- zip (Optional dependency for create release)
+
+**Commentary:** All software to be installed must be installed in $PATH.Android NDK locate in /opt and specify the path to it in the PATH ``/opt/android-ndk-r24``.
+
 ## Usage:
 Download the release you want or clone this repository. Go to the folder.
 #### Linux\MacOS\Termux\WSL (Windows)\iSH Shell
