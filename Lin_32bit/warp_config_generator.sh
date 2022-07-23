@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 clear -x;
 echo -e "\e[0;32m================ Generate Warp+ license key? ================\033[0m"
 echo -e "\t\e[0;32mEnter 1, will be generate new Warp+ license key.\033[0m"
@@ -146,12 +146,7 @@ if [[ $genwarpplus == "1" ]]; then
             echo "Do you have Data transfer?"
             echo -e "Please \e[0;32menter any Keys\033[0m, will be regenerate new Warp+ license key:"
             echo "Enter 1 to abort the cycle."
-            if [[ $SHELL == /bin/bash ]] || [[ $SHELL == /data/data/com.termux/files/usr/bin/bash ]]; then
-                read answer_user;
-            fi
-            if [[ $SHELL == /bin/zsh ]] || [[ $SHELL == /data/data/com.termux/files/usr/bin/zsh ]]; then
-                read answer_user;
-            fi
+                read answer_user
             if [[ $answer_user == 1 ]]; then
                 clear -x
                 break

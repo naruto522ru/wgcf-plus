@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 NDK_VERSION=r24
 rm -rvf ./build-invisibles-crack
 cp -r ./Lin_32bit ./build-invisibles-crack

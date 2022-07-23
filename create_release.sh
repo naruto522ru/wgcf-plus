@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 NDK_VERSION=r24
 if [ $(command -v zip) ]; then
     rm -rfv ./wgcf-plus-realease
