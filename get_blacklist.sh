@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 if [[ $(command -v curl) ]]; then
 curl -# -64 https://antizapret.prostovpn.org/domains-export.txt > ./russia-blacklist.txt;
 else
