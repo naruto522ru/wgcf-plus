@@ -11,8 +11,8 @@
 | :---------- | :------------: | :------------: | :------------ | :------------
 | Linux-32bit |32bit\64bit| &#9989;| Bash | &#9989;
 | Linux-ARMv7| ARMv7\ARMv8| &#9989;| Bash | &#9989;
-| MacOS-64bit| 64bit| &#9989;| Bash | &#10006;
-| MacOS-ARMv8| ARMv8| &#9989;| Bash | &#10006;
+| MacOS-64bit| 64bit| &#9989;| Bash | &#9989; (Catalina)
+| MacOS-ARMv8| ARMv8| &#9989;| Bash | &#9989;
 | Termux-ARMv7| ARMv7\ARMv8| &#9989;| Bash | &#9989;
 | Termux-32bit| 32bit\64bit | &#9989;| Bash | &#10006;
 | Windows-32bit| 32bit\64bit| &#9989;| PowerShell| &#9989;
