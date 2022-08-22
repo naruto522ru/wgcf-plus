@@ -7,7 +7,7 @@
 ---
 #### Contacting the author: [Email](mailto:itachi522ru@gmail.com),[Telegram](https://t.me/FallOutB0y) 
 
-| Release        | Arch |       Support  | Interpreter | Not Tested Author
+| Release        | Arch |       Support  | Interpreter | Tested Author
 | :---------- | :------------: | :------------: | :------------ | :------------
 | Linux-32bit |32bit\64bit| &#9989;| Bash | &#9989;
 | Linux-ARMv7| ARMv7\ARMv8| &#9989;| Bash | &#9989;
