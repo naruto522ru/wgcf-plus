@@ -1,6 +1,5 @@
 import random
 import httpx
-import pyperclip
 
 base_url = "https://api.cloudflareclient.com/v0a2405"
 headers = {
@@ -11,16 +10,16 @@ headers = {
     "User-Agent": "okhttp/3.12.1",
 }
 keys = (
-    "Io935xs2-7z1P65Wi-93wC5Hi2",
-    "d8D2tB46-1ZVB4G75-EFoy6817",
-    "m9054gFd-s7r302Wm-Yd5e310W",
-    "mE4370Tp-37uI5QX0-1520FzTu",
-    "5Ij3k9x8-z89X03Bf-8I046Ttk",
-    "7K142EYT-5h14ZJj9-7nfq46a5",
-    "69R14Lgr-3217hSGw-F6y741jR",
-    "23t1Zw8K-V9MR4v58-79G4oU6u",
-    "9YDz3x04-970w6ptv-cC27y38t",
-    "q7Wr91K4-5Mp8yT97-qtjS6109",
+    "38l74GZW-34gpSX87-52E71iCA",
+    "092n1Mks-8GPK70n5-sE72w95F",
+    "63M5mGn4-05Z2V8uX-Y153Lb0q",
+    "4v92D8QZ-R352fI0n-231Y9FEV",
+    "D2t4es89-93O86mhZ-WB548U9w",
+    "9s64jxd3-74Qc9I3f-5f9UQ12I",
+    "7B9pc28y-S1t9em34-XkN40u78",
+    "S8rm524u-04ug17dy-43UTKX01",
+    "z8Q0f19r-41jzmT70-Bf375yb2",
+    "GcO7623m-9k7IR0U3-1YkU350g",
 )
 key = random.choice(keys)
 
@@ -55,12 +54,11 @@ with httpx.Client(base_url=base_url, headers=headers, timeout=10.0) as client:
 
     r = client.get(f"/reg/{id}/account", headers=headers_get)
     account_type = r.json()["account_type"]
-    referral_count = r.json()["referral_count"]/1000
+    referral_count = r.json()["referral_count"]
     license = r.json()["license"]
 
     client.delete(f"/reg/{id}", headers=headers_get)
 
-print(f"Data transfer: {referral_count} TB")
-print(f"License key: {license}")
-
-pyperclip.copy(f"{license}")
+print(f"Тип аккаунта: {account_type}")
+print(f"Данных выделено: {referral_count} Гбайт")
+print(f"Лицензия: {license}")
