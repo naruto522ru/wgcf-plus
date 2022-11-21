@@ -8,5 +8,7 @@ RUN rm -f /var/cache/pacman/pkg/*.pkg.tar.* && rm -rf /home/docker_user/.cache/y
 RUN pacman -Rcns reflector --noconfirm
 # Generate locales
 RUN rm -f /usr/share/i18n/locales/* && pacman -S glibc --noconfirm --overwrite=* && echo -e "en_US.UTF-8 UTF-8\nru_RU.UTF-8 UTF-8" > /etc/locale.gen && sleep 2s && locale-gen
+# Compiling mdig-bolvan
+RUN wget -nv https://raw.githubusercontent.com/bol-van/zapret/master/mdig/Makefile -P /tmp/ && wget -nv https://raw.githubusercontent.com/bol-van/zapret/master/mdig/mdig.c -P /tmp/ && mv /tmp/Makefile /tmp/Makefile.mdig && cd /tmp/ && make -f Makefile.mdig && mv mdig /usr/local/bin/mdig-bolvan && chmod 755 /usr/local/bin/mdig-bolvan && rm /tmp/mdig.c* &>/dev/null && rm /tmp/Makefile* &>/dev/null
 USER docker_user
 WORKDIR /home/docker_user
